@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE35417B225970C700FDDF79 /* unread.png in Resources */ = {isa = PBXBuildFile; fileRef = AE354179225970C700FDDF79 /* unread.png */; };
+		AE35417C225970C700FDDF79 /* read.png in Resources */ = {isa = PBXBuildFile; fileRef = AE35417A225970C700FDDF79 /* read.png */; };
 		AEA6477422330256007FE738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6477322330256007FE738 /* AppDelegate.swift */; };
 		AEA647762233025B007FE738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA647752233025B007FE738 /* Assets.xcassets */; };
 		AEA647792233025B007FE738 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA647772233025B007FE738 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE354179225970C700FDDF79 /* unread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unread.png; sourceTree = "<group>"; };
+		AE35417A225970C700FDDF79 /* read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read.png; sourceTree = "<group>"; };
 		AEA6477022330256007FE738 /* ForumChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForumChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA6477322330256007FE738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA647752233025B007FE738 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 				AEA647772233025B007FE738 /* MainMenu.xib */,
 				AEA6477A2233025B007FE738 /* Info.plist */,
 				AEA6477B2233025B007FE738 /* ForumChecker.entitlements */,
+				AE35417A225970C700FDDF79 /* read.png */,
+				AE354179225970C700FDDF79 /* unread.png */,
 			);
 			path = ForumChecker;
 			sourceTree = "<group>";
@@ -92,6 +98,7 @@
 				TargetAttributes = {
 					AEA6476F22330256007FE738 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -118,8 +125,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE35417B225970C700FDDF79 /* unread.png in Resources */,
 				AEA647762233025B007FE738 /* Assets.xcassets in Resources */,
 				AEA647792233025B007FE738 /* MainMenu.xib in Resources */,
+				AE35417C225970C700FDDF79 /* read.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +276,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ForumChecker/ForumChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B6FVY827P9;
@@ -278,7 +286,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.ForumChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -286,7 +294,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ForumChecker/ForumChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B6FVY827P9;
@@ -297,7 +304,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.ForumChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

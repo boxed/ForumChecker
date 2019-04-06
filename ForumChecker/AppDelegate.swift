@@ -13,9 +13,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
+    var statusBarItem : NSStatusItem?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        let statusBar = NSStatusBar.system
+        statusBarItem = statusBar.statusItem(withLength: 27)
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {
+            timer in
+
+            let session = URLSession.shared
+            let url = URL(string: "https://forum.killingar.net/api/0/unread_simple/?username=möller&password=q".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)!
+
+            let task = session.dataTask(with: url, completionHandler: { data, response, error in
+                guard error == nil else { return }
+
+                if let httpResponse = response as? HTTPURLResponse {
+                    DispatchQueue.main.async { 
+                        if httpResponse.statusCode == 204 {
+                            // Nothing unread
+                            self.statusBarItem?.button!.image = NSImage.init(named: "read.png")
+                        }
+                        else {
+                            // Something unread
+                            self.statusBarItem?.button!.image = NSImage.init(named: "unread.png")
+                        }
+                    }
+                }
+            })
+            task.resume()
+
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
