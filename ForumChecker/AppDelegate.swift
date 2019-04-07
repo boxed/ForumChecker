@@ -14,10 +14,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
 
     var statusBarItem : NSStatusItem?
+    let read = NSImage.init(named: "read.png")
+    let unread = NSImage.init(named: "unread.png")
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let statusBar = NSStatusBar.system
-        statusBarItem = statusBar.statusItem(withLength: 27)
+        statusBarItem = statusBar.statusItem(withLength: NSStatusItem.squareLength)
         
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {
             timer in
@@ -29,15 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 guard error == nil else { return }
 
                 if let httpResponse = response as? HTTPURLResponse {
-                    DispatchQueue.main.async { 
-                        if httpResponse.statusCode == 204 {
-                            // Nothing unread
-                            self.statusBarItem?.button!.image = NSImage.init(named: "read.png")
-                        }
-                        else {
-                            // Something unread
-                            self.statusBarItem?.button!.image = NSImage.init(named: "unread.png")
-                        }
+                    DispatchQueue.main.async {
+                        let image = httpResponse.statusCode == 204 ? self.read : self.unread
+                        image!.isTemplate = true
+                        self.statusBarItem?.button!.image = image;
+                        self.statusBarItem?.button!.imageScaling = .scaleProportionallyDown
                     }
                 }
             })
